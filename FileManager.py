@@ -1,20 +1,22 @@
+# Both pre defined python packages
 import pathlib as p
 import os
 
 # Creating a Loop
-z = 1
-while z == 1:
+z = True
+while z is True:
     print('\nWhich Program do you want to execute? \n Enter 1 for File Organising \n Enter 2 for Folder Creating ')
 
     # Taking input
     inputprogram = int(input())
 
-    # It user chooses 1st Program
+    # If user chooses 1st Program (File Organising)
     if inputprogram == 1:
 
-        Path = ""
-        files = None
-        ext = set()
+        # Declaration
+        Path = ""  # Path input by user
+        files = None  # For the files in Path
+        ext = set()  # Extensions of files in path (Creating a set)
 
         # Function to get the extension file.
         def GetExtensions():
@@ -40,13 +42,11 @@ while z == 1:
             global files, Path
 
             Path = p.Path(input("Enter Path: "))
-
             files = list(Path.glob("*"))
 
             GetExtensions()
             CreateFolder()
             MoveFiles()
-
 
         if __name__ == "__main__":
             main()
@@ -57,14 +57,14 @@ while z == 1:
         Path = p.Path(input("Enter Path: "))
 
         # Number of file to be created
-        nof = int(input('Enter the number of files to be created : '))
+        nof = int(input('Enter the number of files to be created : '))  #Number of folder to be created
 
         for i in range(0, nof):
             os.chdir(Path)
             NewFolder = str(input('Name the File ' + str(i + 1) + ' : '))
-            os.makedirs(NewFolder)
+            os.mkdir(NewFolder)
 
     else:
         print('Invalid Input')
 
-    print ('\nYour Program has been executed \n')
+    print('\nYour Program has been executed \n')
