@@ -1,4 +1,4 @@
-# File-Manager
+# EzFiile
 
 
 MAnages your File
